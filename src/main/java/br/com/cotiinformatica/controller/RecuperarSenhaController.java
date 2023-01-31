@@ -9,7 +9,7 @@ public class RecuperarSenhaController {
 
 	@RequestMapping(value = "/recuperar-senha") // ROTA (navegação)
 	public ModelAndView recuperarSenha() {
-		// WEB-INF/views/autenticar.jsp
+		// WEB-INF/views/recuperar-senha.jsp
 		ModelAndView modelAndView = new ModelAndView("recuperar-senha");
 		return modelAndView;
 	}

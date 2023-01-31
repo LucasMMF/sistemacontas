@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
+<!-- Biblioteca de Tags do Spring MVC -->
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,22 +32,33 @@
 					</div>
 					
 					<hr/>
+					
+					<div class="text-success">
+						<strong>${mensagem_sucesso}</strong>
+					</div>
+					
+					<div class="text-danger">
+						<strong>${mensagem_erro}</strong>
+					</div>
 	
-					<form id="form_criarusuario">
+					<form id="form_criarusuario" action="cadastrar-usuario" method="post">
 	
 						<div class="mb-2">
 							<label>Entre com o seu nome:</label>
-							<input type="text" name="nome" class="form-control"/>
+							<form:input path="model.nome" type="text" name="nome" class="form-control"/>
 						</div>
 						
 						<div class="mb-2">
 							<label>Entre com o seu email:</label>
-							<input type="text" name="email" class="form-control"/>
+							<form:input path="model.email" type="text" name="email" class="form-control"/>
+							<span class="text-danger">
+								${erro_email}
+							</span>
 						</div>
 		
 						<div class="mb-2">
 							<label>Entre com a sua senha</label>
-							<input type="password" name="senha" id="senha" class="form-control"/>
+							<form:input path="model.senha" type="password" name="senha" id="senha" class="form-control"/>
 						</div>
 						
 						<div class="mb-2">
