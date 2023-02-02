@@ -28,11 +28,45 @@ public class UsuarioRepository {
 
 		jdbcTemplate.update(query, params);
 	}
+	
+	public void update(Integer idUsuario, String novaSenha) throws Exception {
+		
+		String query = "UPDATE usuario SET senha = md5(?) WHERE idusuario = ?";
+		Object[] params = { novaSenha, idUsuario };
+		
+		jdbcTemplate.update(query, params);
+	}
 
 	public Usuario findByEmail(String email) throws Exception {
 
 		String query = "SELECT * FROM usuario WHERE email = ?";
 		Object[] params = { email };
+
+		List<Usuario> lista = jdbcTemplate.query(query, params, new RowMapper<Usuario>() {
+
+			@Override
+			public Usuario mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Usuario usuario = new Usuario();
+
+				usuario.setIdUsuario(rs.getInt("idusuario"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setEmail(rs.getString("email"));
+				usuario.setSenha(rs.getString("senha"));
+
+				return usuario;
+			}
+		});
+
+		if (lista.size() == 1) // Verificando se 1 usuário foi encontrado
+			return lista.get(0); // Retornando os dados do usuário encontrado
+		else
+			return null; // Retornando vazio
+	}
+	
+	public Usuario findByEmailAndSenha(String email, String senha) throws Exception {
+
+		String query = "SELECT * FROM usuario WHERE email = ? AND senha = md5(?)";
+		Object[] params = { email, senha };
 
 		List<Usuario> lista = jdbcTemplate.query(query, params, new RowMapper<Usuario>() {
 

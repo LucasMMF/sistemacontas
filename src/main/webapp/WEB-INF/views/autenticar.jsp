@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,17 +31,21 @@
 					</div>
 					
 					<hr/>
+					
+					<div class="text-danger">
+						<strong>${mensagem_erro}</strong>
+					</div>
 	
-					<form id="form_autenticar">
+					<form id="form_autenticar" action="autenticar-usuario" method="post">
 	
 						<div class="mb-2">
 							<label>Entre com o seu email:</label>
-							<input type="text" name="email" class="form-control"/>
+							<form:input path="model.email" type="text" name="email" class="form-control"/>
 						</div>
 		
 						<div class="mb-2">
 							<label>Entre com a sua senha</label>
-							<input type="password" name="senha" class="form-control"/>
+							<form:input path="model.senha" type="password" name="senha" class="form-control"/>
 							<div class="text-end">
 								<a href="/sistemacontas/recuperar-senha">
 									Esqueci minha senha?
