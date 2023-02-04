@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<!-- Biblioteca de Tags do Spring MVC -->
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,12 +32,20 @@
 					</div>
 					
 					<hr/>
+					
+					<div class="text-success">
+						<strong>${mensagem_sucesso}</strong>
+					</div>
+					
+					<div class="text-danger">
+						<strong>${mensagem_erro}</strong>
+					</div>
 	
-					<form id="form_recuperarsenha">
+					<form id="form_recuperarsenha" action="recuperacao-de-senha" method="post">
 						
 						<div class="mb-2">
 							<label>Entre com o seu email:</label>
-							<input type="text" name="email" class="form-control"/>
+							<form:input path="model.email" type="text" name="email" class="form-control"/>
 						</div>
 		
 						<div class="mb-2 d-grid">
