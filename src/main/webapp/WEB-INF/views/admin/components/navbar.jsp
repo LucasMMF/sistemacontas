@@ -17,8 +17,8 @@
 	            Gerenciar contas
 	          </a>
 	          <ul class="dropdown-menu">
-	            <li><a class="dropdown-item" href="/sistemacontas/admin/cadastrar-contas">Cadastrar contas</a></li>
-	            <li><a class="dropdown-item" href="/sistemacontas/admin/consultar-contas">Consultar contas</a></li>
+	            <li><a class="dropdown-item" href="/sistemacontas/admin/cadastro-contas">Cadastrar contas</a></li>
+	            <li><a class="dropdown-item" href="/sistemacontas/admin/consulta-contas">Consultar contas</a></li>
 	          </ul>
 	        </li>
 	      </ul>
