@@ -8,7 +8,9 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Sistema contas - Cadastro de usuários</title>
+	<meta name="viewport" content="width=device-width"/>
+	
+	<title>Sistema contas - Cadastro de usuário</title>
 	
 	<!-- CDN da folha de estilos CSS do bootstrap -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />

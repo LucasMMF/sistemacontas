@@ -7,6 +7,8 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
+	<meta name="viewport" content="width=device-width"/>
+	
 	<title>Sistema contas - Autenticação</title>
 	
 	<!-- CDN da folha de estilos CSS do bootstrap -->

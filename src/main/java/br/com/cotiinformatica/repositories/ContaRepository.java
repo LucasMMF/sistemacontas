@@ -1,5 +1,6 @@
 package br.com.cotiinformatica.repositories;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -140,6 +141,25 @@ public class ContaRepository {
 			return lista.get(0);
 		else
 			return null;
+	}
+	
+	public Double sumByUsuarioAndData(Integer idUsuario, Date dataIni, Date dataFim, Integer tipo) throws Exception {
+		
+		String query = "SELECT SUM(valor) FROM conta WHERE idusuario = ? AND data BETWEEN ? AND ? AND tipo = ?";
+		
+		Object[] params = {
+				idUsuario,
+				java.sql.Date.valueOf(new SimpleDateFormat("yyyy-MM-dd").format(dataIni)),
+				java.sql.Date.valueOf(new SimpleDateFormat("yyyy-MM-dd").format(dataFim)),
+				tipo
+		};
+		
+		BigDecimal valor = jdbcTemplate.queryForObject(query, params, BigDecimal.class);
+		
+		if (valor != null)
+			return valor.doubleValue();
+		else
+			return 0.0;
 	}
 	
 }
